@@ -6,3 +6,4 @@ web-build/
 /node_modules
 /android/app/build
 /android/.gradle
+/android/app/.cxx
