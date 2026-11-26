@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "647522922981",
+    "project_id": "rn-demo-dc406",
+    "storage_bucket": "rn-demo-dc406.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:647522922981:android:a40bcd4a97aceb96137f0c",
+        "android_client_info": {
+          "package_name": "com.king.demo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFFzF-u_D0JRQ7T4KcGRp-a4eIWZ24gGs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

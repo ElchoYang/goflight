@@ -1,5 +1,8 @@
 import { View, Button, Text, StyleSheet, Pressable } from 'react-native';
-import { scheduleFlightNotification } from '../services/notificationService';
+import {
+  scheduleFlightNotification,
+  PushNotification,
+} from '../services/notificationService';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import NotificationButton from '../components/NotificationButton';
 
@@ -14,17 +17,7 @@ export default function ProfileScreen() {
   };
 
   const sendPushNotificationHandler = async () => {
-    fetch('https://exp.host/--/api/v2/push/send', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        to: '<Your Device Push Token>]',
-        title: 'Test - sent from a device!',
-        body: 'This is a test!',
-      }),
-    });
+    PushNotification();
   };
 
   return (

@@ -5,3 +5,4 @@ dist/
 web-build/
 /node_modules
 /android/app/build
+/android/.gradle

@@ -1,4 +1,4 @@
-package com.rn_cli_demo
+package com.goFlight
 import expo.modules.ReactActivityDelegateWrapper
 // 1. 确保有这个导入
 import android.os.Bundle

@@ -1,3 +1,4 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as Notifications from 'expo-notifications';
 import { Platform } from 'react-native';
 
@@ -8,7 +9,7 @@ Notifications.setNotificationHandler({
       shouldShowBanner: true, // 前台横幅
       shouldShowList: true, // 通知中心列表
       shouldPlaySound: true, // 播放声音
-      shouldSetBadge: false, // 角标
+      shouldSetBadge: true, // 角标
     };
   },
 });
@@ -42,7 +43,17 @@ export async function registerForPushNotificationsAsync() {
   }
 
   // 如果需要远程推送 token（本地通知不需要获取 token 也能发）
-  token = (await Notifications.getExpoPushTokenAsync()).data;
+  const res = await Notifications.getExpoPushTokenAsync({
+    projectId: 'b74e5230-145c-465c-8cf2-9e05ee91e1e1',
+  });
+
+  token = res?.data;
+  console.log('res:', res);
+  console.log('token:', token);
+  if (token) {
+    await AsyncStorage.setItem('token', token);
+  }
+
   return token;
 }
 
@@ -59,5 +70,22 @@ export async function scheduleFlightNotification(
       data,
     },
     trigger: null, // null 表示立即发送；或者设置 seconds: 5 延时发送
+  });
+}
+
+export async function PushNotification() {
+  const token = await AsyncStorage.getItem('token');
+  console.log('stored token in PushNotification:', token);
+
+  fetch('https://exp.host/--/api/v2/push/send', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      to: token,
+      title: 'Test - sent from a device!',
+      body: 'This is a test!',
+    }),
   });
 }

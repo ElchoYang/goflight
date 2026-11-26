@@ -1,6 +1,7 @@
 apply plugin: "com.android.application"
 apply plugin: "org.jetbrains.kotlin.android"
 apply plugin: "com.facebook.react"
+apply plugin: 'com.google.gms.google-services' // google
 
 /**
  * This is the configuration block to customize your React Native Android app.
@@ -82,9 +83,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace "com.rn_cli_demo"
+    namespace "com.goFlight"
     defaultConfig {
-        applicationId "com.rn_cli_demo"
+        applicationId "com.king.demo"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -122,5 +123,5 @@ dependencies {
         implementation jscFlavor
     }
 }
-
+ 
 apply from: file("../../node_modules/react-native-vector-icons/fonts.gradle")
