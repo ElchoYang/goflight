@@ -1,4 +1,9 @@
 {
   "name": "goFlight",
-  "displayName": "goFlight"
+  "displayName": "goFlight",
+  "extra": {
+    "eas": {
+      "projectId": "b74e5230-145c-465c-8cf2-9e05ee91e1e1"
+    }
+  }
 }
