@@ -1,4 +1,4 @@
-import { View, Button, Text, StyleSheet, Pressable } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import {
   scheduleFlightNotification,
   PushNotification,

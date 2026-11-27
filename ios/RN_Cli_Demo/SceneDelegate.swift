@@ -30,7 +30,7 @@ class SceneDelegate: RCTDefaultReactNativeFactoryDelegate, UIWindowSceneDelegate
     #endif
     
     reactNativeFactory?.startReactNative(
-      withModuleName: "RN_Cli_Demo",
+      withModuleName: "goFlight",
       in: window,
       connectionOptions: connectionOptions
     )

@@ -10,7 +10,7 @@
 | 语言         | TypeScript / Kotlin / Swift                                                                              |
 | 导航         | React Navigation 7：native-stack + bottom-tabs                                                           |
 | 其他         | Reanimated 4、Gesture Handler、Safe Area、Vector Icons、AsyncStorage、datetimepicker、expo-notifications |
-| 包名         | **混乱**：namespace `com.goFlight`、applicationId `com.king.demo`、源码目录包名 `com.rn_cli_demo`        |
+| 包名         | **混乱**：namespace `com.goFlight`、applicationId `com.king.demo`、源码目录包名 `com.goFlight`           |
 
 ---
 
