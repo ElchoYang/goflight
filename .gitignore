@@ -4,6 +4,14 @@
 dist/
 web-build/
 /node_modules
+
+# Android
 /android/app/build
+/android/build
 /android/.gradle
 /android/app/.cxx
+# 每台机器的 SDK 路径不同，绝不能同步
+/android/local.properties
+
+# macOS
+.DS_Store

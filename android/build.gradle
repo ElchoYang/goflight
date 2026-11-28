@@ -8,6 +8,10 @@ buildscript {
         kotlinVersion = "2.2.0"
     }
     repositories {
+        // 国内直连 Maven Central 经常握手被断，把阿里云镜像放在最前面（找不到时仍会回落到 google()/mavenCentral()）
+        maven { url "https://maven.aliyun.com/repository/public" }
+        maven { url "https://maven.aliyun.com/repository/google" }
+        maven { url "https://maven.aliyun.com/repository/gradle-plugin" }
         google()
         mavenCentral()
     }
@@ -16,6 +20,23 @@ buildscript {
         classpath("com.facebook.react:react-native-gradle-plugin")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin")
         classpath("com.google.gms:google-services:4.4.2")
+    }
+}
+
+// 三方库（如 react-native-safe-area-context 的 buildscript、AGP 的 KSP classpath）用的是各自的仓库列表，
+// 这里给所有 project（含 buildscript）也补上镜像，保证镜像排在它们自己声明的仓库之前。
+allprojects {
+    buildscript {
+        repositories {
+            maven { url "https://maven.aliyun.com/repository/public" }
+            maven { url "https://maven.aliyun.com/repository/google" }
+            maven { url "https://maven.aliyun.com/repository/gradle-plugin" }
+        }
+    }
+    repositories {
+        maven { url "https://maven.aliyun.com/repository/public" }
+        maven { url "https://maven.aliyun.com/repository/google" }
+        maven { url "https://maven.aliyun.com/repository/gradle-plugin" }
     }
 }
 
