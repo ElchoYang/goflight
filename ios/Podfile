@@ -15,6 +15,8 @@ if linkage != nil
   use_frameworks! :linkage => linkage.to_sym
 end
 
+# 注意：这里必须与 Xcode 工程里 PBXNativeTarget 的名字完全一致（当前均为 goFlight）。
+# 以后若在 Xcode 里重命名 target，这里要同步改。
 target 'goFlight' do
   use_expo_modules!
 

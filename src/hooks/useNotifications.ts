@@ -27,7 +27,7 @@ export function useNotifications() {
 
         // 根据通知带的数据跳转到对应页面
         if (data?.screen) {
-          navigate(data.screen, data.params);
+          navigate(data.screen as string, data.params);
         }
       });
 

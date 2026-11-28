@@ -12,6 +12,11 @@ web-build/
 /android/app/.cxx
 # 每台机器的 SDK 路径不同，绝不能同步
 /android/local.properties
+# iOS
+/ios/Pods
+/ios/build
+# 每台机器的 Node 路径，因机而异
+/ios/.xcode.env.local
 
 # macOS
 .DS_Store

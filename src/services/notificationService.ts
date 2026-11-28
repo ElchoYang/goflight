@@ -43,15 +43,21 @@ export async function registerForPushNotificationsAsync() {
   }
 
   // 如果需要远程推送 token（本地通知不需要获取 token 也能发）
-  const res = await Notifications.getExpoPushTokenAsync({
-    projectId: 'b74e5230-145c-465c-8cf2-9e05ee91e1e1',
-  });
+  // 模拟器没有 APNs，拿不到 token 会抛错（缺 aps-environment 权限），这里降级处理，避免红屏
+  try {
+    const res = await Notifications.getExpoPushTokenAsync({
+      projectId: 'b74e5230-145c-465c-8cf2-9e05ee91e1e1',
+    });
 
-  token = res?.data;
-  console.log('res:', res);
-  console.log('token:', token);
-  if (token) {
-    await AsyncStorage.setItem('token', token);
+    token = res?.data ?? null;
+    console.log('res:', res);
+    console.log('token:', token);
+    if (token) {
+      await AsyncStorage.setItem('token', token);
+    }
+  } catch (error) {
+    console.warn('[push] 获取远程推送 token 失败（模拟器或未配置 APNs 时属正常）:', error);
+    token = null;
   }
 
   return token;
